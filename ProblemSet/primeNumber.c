@@ -25,7 +25,7 @@ int primeNumber(int number){
 }
 
 int main(){
-    int number=5;
+    int number=23;
     int check=primeNumber(number);
     if(check){
         printf("Number was prime.");
