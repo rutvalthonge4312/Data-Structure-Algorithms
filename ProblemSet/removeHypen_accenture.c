@@ -24,3 +24,36 @@ Sample Output-
 -StringCompare
 
 */
+
+#include<stdio.h>
+#include<stdlib.h>
+
+char *MoveHyphen(char str[],int n){
+    int updatedSize=n;
+    int isSwappingDone=0;
+    char temp;
+    for(int i=0;i<n;i++){
+        if(str[i]=='-'){    
+            if(!isSwappingDone){
+                for(int j=i;j>0;j--){
+                    temp=str[j];
+                    str[j]=str[j-1];
+                    str[j-1]=temp;
+                }
+                isSwappingDone=1;
+            }
+            for(int j=i;j<updatedSize;j++){
+                str[j]=str[j+1];
+            }      
+            updatedSize--;
+        }
+    }
+
+    return str;
+}
+
+int main(){
+    char str[21]={'M', 'o', 'v', 'e', 'a', 'H' ,'y', 'p', 'h', 'e', 'n', 's' ,'-' ,'t', 'o', '-', 'F' ,'r', 'o', 'n', 't' };
+    char*newArr=MoveHyphen(str,21);
+    printf("%s",newArr);
+}
